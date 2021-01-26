@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntroCamera : MonoBehaviour
+public class IntroControl : MonoBehaviour
 {
     [SerializeField] private Camera gameCamera;
     [SerializeField] private float transitionTime;
@@ -50,7 +50,11 @@ public class IntroCamera : MonoBehaviour
                     transitionCounter / transitionTime);
             yield return null;
         }
-        
+        EndTransition();
+    }
+
+    public void EndTransition()
+    {
         introCamera.enabled = false;
         gameCamera.enabled = true;
         menuCanvas.gameObject.SetActive(false);

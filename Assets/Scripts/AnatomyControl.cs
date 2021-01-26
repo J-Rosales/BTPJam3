@@ -52,6 +52,28 @@ public class AnatomyControl : MonoBehaviour
 
     IntBoolEvent onArmorDisplayChange = new IntBoolEvent();
     List<SpriteRenderer> partRenderers = new List<SpriteRenderer>();
+    Animator bodyAnimator;
+    LookType _lookType
+    {
+        get
+        {
+            return lookType;
+        }
+        set
+        {
+            value = lookType;
+            if(bodyAnimator == null)
+                bodyAnimator = transform.GetChild(0).GetComponent<Animator>();
+            
+            if(lookType == LookType.skin)
+                bodyAnimator.runtimeAnimatorController = skinController;
+            else if (lookType == LookType.muscle)
+                bodyAnimator.runtimeAnimatorController = muscleController;
+            else if (lookType == LookType.skeleton)
+                bodyAnimator.runtimeAnimatorController = skeletonController;
+
+        }
+    }
 
     void Start()
     {

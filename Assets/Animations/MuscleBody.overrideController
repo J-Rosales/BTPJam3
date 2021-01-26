@@ -7,5 +7,5 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MuscleBody
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89d2a6b6b3bb9fc4bb601d9adc91306e, type: 2}
   m_Clips: []
