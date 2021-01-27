@@ -13,7 +13,7 @@ public class LevelControl : MonoBehaviour
     bool boundaryLock;
     private void Start()
     {
-        player = FindObjectOfType<Player>().transform;
+        player = FindObjectOfType<PlayerMovement>().transform;
     }
 
     private void Update()

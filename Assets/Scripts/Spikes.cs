@@ -13,7 +13,7 @@ public class Spikes : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<Player>())
+        if(other.GetComponent<PlayerMovement>())
             FallOut();
     }
 

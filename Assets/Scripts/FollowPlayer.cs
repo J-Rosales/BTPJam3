@@ -25,7 +25,7 @@ public class FollowPlayer : MonoBehaviour
     {
         level = FindObjectOfType<LevelControl>();
         if(player == null)
-            player = FindObjectOfType<Player>().transform;
+            player = FindObjectOfType<PlayerMovement>().transform;
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if(player == null)
         {
-            player = FindObjectOfType<Player>().transform;
+            player = FindObjectOfType<PlayerMovement>().transform;
             Debug.Log("player not found: reassigning");
         }
 

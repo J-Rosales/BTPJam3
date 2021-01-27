@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 5381086743837529531}
   - component: {fileID: 5381086743837529527}
   - component: {fileID: 5381086743837529524}
-  - component: {fileID: 2142958137351722407}
   - component: {fileID: 1951449569591711903}
   - component: {fileID: 6369789670178523779}
   - component: {fileID: 9117899330775546114}
@@ -574,22 +573,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c855be3b68db84384c8e7ea97e0cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: {x: 3, y: 13}
-  moveForce: 20
-  jumpForce: 15
-  groundGravity: 1
-  jumpGravity: 10
-  gravityPerArmorPart: 0
-  runMultiplier: 1.7
-  isGrounded: 0
+  jumpInput: 32
+  runInput: 304
   levelTiles:
     serializedVersion: 2
     m_Bits: 1024
-  moveDirection: {x: 0, y: 0}
-  lastDirection: {x: 0, y: 0}
+  walkMoveForce: 12
+  runMoveForce: 22
+  jumpForce: 15
+  groundGravity: 1
+  jumpGravity: 10
+  walkMaxVelocity: {x: 3, y: 10}
+  runMaxVelocity: {x: 5, y: 10}
+  maxStamina: 50
+  staminaDecayTime: 0.1
+  staminaRegenTime: 0.2
   onJump:
     m_PersistentCalls:
       m_Calls: []
+  currentMaxVelocity: {x: 0, y: 0}
+  moveDirection: {x: 0, y: 0}
+  lastDirection: {x: 0, y: 0}
+  currentMoveForce: 0
+  currentStamina: 0
+  canMove: 1
+  isGrounded: 0
+  isLanding: 0
+  isRunning: 0
 --- !u!114 &5381086743837529524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,26 +636,6 @@ MonoBehaviour:
   skinController: {fileID: 9100000, guid: 89d2a6b6b3bb9fc4bb601d9adc91306e, type: 2}
   muscleController: {fileID: 22100000, guid: 7af7f49848cadee4ea1c10c5d1f8febc, type: 2}
   skeletonController: {fileID: 22100000, guid: bb0e1ab7712b4754a825752f2bcaf673, type: 2}
---- !u!114 &2142958137351722407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5381086743837529529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23cda6fa5c7422d4aaefa9bfa985b3cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GUIDisplay: {fileID: 0}
-  running: 0
-  max: 50
-  current: 50
-  decayTime: 0.05
-  regenTime: 0.05
-  displayPixelsPerStamina: 2.5
-  runInput: 304
 --- !u!95 &1951449569591711903
 Animator:
   serializedVersion: 3
@@ -677,6 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996f71b86ccd52b479bf1b82b3ceffae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLanding: 0
   launchThreshold: 0
   runningSweatObject: {fileID: 316712233613926663}
 --- !u!50 &9117899330775546114

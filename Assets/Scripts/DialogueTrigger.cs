@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!read && other.GetComponent<Player>())
+        if(!read && other.GetComponent<PlayerMovement>())
         {
             dialogue.Print(text);
             read = true;

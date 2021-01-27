@@ -6,7 +6,7 @@ public class SpawnControl : MonoBehaviour
 {
     public Transform[] spawns;
 
-    Player player;
+    PlayerMovement player;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class SpawnControl : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerMovement>();
         FindObjectOfType<LevelControl>().onPlayerOutOfBounds.AddListener(Respawn);
     }
 
